@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" http-equiv="Content-Type" content="text/html">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <title>x-plan 专业的自驾游路线规划网站</title>
+
+    <link rel="stylesheet" href="/xplan/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://www.bootcss.com/p/buttons/css/buttons.css">
+    <link rel="stylesheet" href="/xplan/bower_components/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="/xplan/views/home/home.css">
+
+    <script src="http://api.map.baidu.com/api?v=2.0&ak=6UQwMuo3ApcDgmzmGMS9MLnIzKOySWtg"
+            type="text/javascript"></script>
+    <script src="/xplan/bower_components/angular/angular.js"></script>
+    <script src="/xplan/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="/xplan/bower_components/angular-animate/angular-animate.js"></script>
+    <script src="/xplan/node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+    <script src="/xplan/bower_components/angular-aria/angular-aria.min.js"></script>
+    <script src="/xplan/bower_components/angular-messages/angular-messages.js"></script>
+    <script src="/xplan/bower_components/angular-material/angular-material.min.js"></script>
+    <script src="home.js"></script>
+    <script src="/xplan/views/home/content/content.js"></script>
+    <script src="/xplan/views/home/content/map/mapComponents.js"></script>
+
+
+</head>
+<body ng-app="xPlan">
+
+<div ui-view="header"></div>
+<div ui-view="content"></div>
+<!--加载地图开始-->
+<div class="map-container" ng-controller="componentCtrl">
+    <a href="" class="button button-blue button-circle map-model" ng-click="showMapContent()"><i class="fa fa-map-o"></i></a>
+    <a href="" class="button button-red button-circle text-model" ng-click="showTextContent()"><i class="fa fa-bookmark-o"></i></a>
+    <div class="search-panel" ng-hide="drawBack" ng-show="showSearchPanel">
+        <div class="col-xs-2">
+            <button class="button button-square button-small" ng-click="showLocationSearchInput()"><i
+                    class="fa fa-map-marker fa-2x"></i></button>
+            <button class="button button-square button-small" ng-click="showSpaceSearchInput()"><i
+                    class="fa fa-arrows-h fa-2x"></i></button>
+        </div>
+        <div class="col-xs-8" ng-show="showLocationSearch">
+            <div class="input-group">
+                <input type="text" class="form-input form-control" placeholder="目的地">
+                <span class="input-group-btn">
+                    <button class="btn button-blue" type="button"><i class="fa fa-search"></i></button>
+                </span>
+            </div>
+        </div>
+        <div class="col-xs-8" ng-show="showSpaceSearch">
+            <div class="col-xs-5">
+                <input type="text" class="form-input form-control" placeholder="起点">
+            </div>
+            <div class="col-xs-7">
+                <div class="input-group">
+                    <input type="text" class="form-input form-control" placeholder="终点">
+                    <span class="input-group-btn">
+                        <button class="btn button-blue" type="button"><i class="fa fa-search"></i></button>
+                    </span>
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <span class="space-info">相距2km，驾车32h</span>
+            </div>
+        </div>
+        <a class="button button-square button-red button-small right"><i class="fa fa-angle-double-up fa-2x"></i></a>
+    </div>
+    <div class="text-editor" ng-show="showTextEditor"></div>
+    <div id="map" ng-show="showMap"></div>
+    <script type="text/javascript">
+        var map = new BMap.Map("map");    // 创建Map实例
+        map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);  // 初始化地图,设置中心点坐标和地图级别
+        map.addControl(new BMap.MapTypeControl());   //添加地图类型控件
+        map.setCurrentCity("北京");          // 设置地图显示的城市 此项是必须设置的
+        map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+    </script>
+</div>
+<!--加载地图结束-->
+</body>
+</html>

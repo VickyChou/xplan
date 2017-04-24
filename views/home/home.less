@@ -1,0 +1,337 @@
+@gray: #c3c3c3;
+@green: #1abc9c;
+@light-green: #2fcdaa;
+@white: white;
+@snow: #fafafa;
+@red: #e76040;
+@light-red: #ec7063;
+@black: #666;
+@font-small:0.5em;
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif, "Microsoft YaHei UI";
+  position: relative;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:link, a:visited, a:hover, a:active {
+  text-decoration: none;
+}
+
+.line {
+  display: inline-block;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+
+.button-blue {
+  color: @white;
+  background-color: @green;
+}
+
+.button-blue:visited {
+  color: @white;
+  background-color: @green;
+}
+
+.button-blue:hover {
+  color: @white;
+  background-color: @light-green;
+}
+
+.button-blue:active {
+  color: @white;
+  background-color: @green;
+}
+
+.button-red {
+  color: @white;
+  background-color: @red;
+}
+
+.button-red:visited {
+  color: @white;
+  background-color: @red;
+}
+
+.button-red:hover {
+  color: @white;
+  background-color: @light-red;
+}
+
+.button-red:active {
+  color: @white;
+  background-color: @red;
+}
+
+input:-ms-input-placeholder {
+  color: @gray;
+}
+
+input::-webkit-input-placeholder {
+  color: @gray;
+}
+
+.form-input{
+  border-radius: 0.2em;
+  border: 1px solid @gray;
+}
+
+.form-input:focus{
+  border: 2px solid @green;
+  outline: none;
+}
+
+.input-text-m{
+  width: 70%;
+  height: 2.5em;
+}
+
+.Halo{
+  -moz-box-shadow:0 0 10px 5px @gray;
+  -webkit-box-shadow:0 0 10px 5px @gray;
+  box-shadow:0 0 10px 5px @gray;
+}
+
+.show{
+  display: block;
+}
+
+.hide{
+  display: none;
+}
+
+header {
+  width: 100%;
+  height: 5em;
+  background-color: white;
+  position: relative;
+  border-bottom: @gray 1px solid;
+  .logo {
+    width: 5%;
+    height: 4.2em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -2.1em;
+    margin-left: -2.5%;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .new-route {
+    .line;
+    margin-left: 18%;
+    line-height: 5em;
+  }
+  .passport {
+    .line;
+    margin: 0 2em;
+    float: right;
+    ul, li {
+      .line;
+      text-decoration: none;
+    }
+    li {
+      line-height: 5em;
+      padding: 0 1em;
+      a {
+        font-size: 1.2em;
+        color: @gray;
+      }
+      a:hover {
+        color: @green;
+      }
+    }
+
+  }
+}
+
+
+.content {
+  position: relative;
+  .dashboard {
+    width: 18%;
+    background-color: white;
+    position: absolute;
+    top: -5em;
+    height: 100vh;
+    .map-model {
+      position: absolute;
+      left: 20%;
+    }
+    .route-title {
+      height: 5em;
+      width: 100%;
+      border-bottom: 1px solid @gray;
+      position: relative;
+      .route-title-position {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-left: -35%;
+        margin-top: -1.25em;
+      }
+    }
+    .editor-panel {
+      border-right: 1px solid @gray;
+      .days-editor {
+        width: 100%;
+        height: 6.4em;
+        border-bottom: 1px dashed @gray;
+        ul {
+          padding: 0;
+          margin: 0;
+          text-align: center;
+          .padding20 {
+            padding: 0 1em;
+          }
+          li {
+            .line;
+            a {
+              color: @green;
+            }
+            a:hover {
+              color: @gray;
+            }
+            p {
+              margin: 0;
+              text-align: center;
+              span{
+                padding: 0 1em;
+              }
+              a {
+                color: @gray;
+                font-size: 0.5em;
+              }
+              a:hover {
+                color: @green;
+              }
+            }
+          }
+        }
+      }
+      .sights-editor {
+        width: 100%;
+        height: 79vh;
+        padding: 1em;
+        .sight-container {
+          width: 100%;
+          height: 5em;
+          background-color: @snow;
+          border: 1px solid @white;
+          border-radius: 0.2em;
+          .sight-img {
+            width: 32%;
+            height: 100%;
+            background-color: #1abc9c;
+            .left;
+            img{
+              width: 100%;
+              height: 100%;
+            }
+          }
+          .sight-title {
+            width: 68%;
+            height: 100%;
+            .left;
+            padding: 0.5em 0.5em 0.5em 1em;
+            p {
+              text-align: right;
+              margin: 1.1em 0 0 0;
+              i {
+                padding: 0 0.5em;
+              }
+            }
+          }
+          a {
+            color: @black;
+          }
+          a:hover {
+            color: @gray;
+          }
+        }
+        .sight-container:hover {
+          border: 1px solid @gray;
+        }
+        .sight-distance {
+          width: 100%;
+          height: 2em;
+          color: @black;
+          span {
+            font-size: @font-small;
+          }
+          i {
+            padding-left: 1em;
+          }
+          i:nth-child(1) {
+            color: @gray;
+          }
+        }
+      }
+      .editor-footer {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+      }
+    }
+  }
+}
+
+.map-container{
+  width: 82%;
+  height: 92.7vh;
+  position: relative;
+  left: 18%;
+  .text-editor{
+    width: 100%;
+    height: inherit;
+  }
+  #map {
+    .text-editor;
+  }
+  .map-model,.text-model,.search-panel{
+    position: absolute;
+    top:1%;
+    z-index: 1;
+  }
+  .map-model{
+    .Halo;
+    left: 2%;
+  }
+  .text-model{
+    .Halo;
+    left: 6%;
+  }
+  .search-panel{
+    width: 40em;
+    height:5.1em;
+    left: 50%;
+    margin-left: -20em;
+    background-color: rgba(255,255,255,0.9);
+    .Halo;
+    .col-xs-2{
+      button{
+        margin: 0.2em;
+      }
+    }
+    .col-xs-8{
+      margin-top: 1.2em;
+      .space-info{
+        font-size: @font-small;
+        color: @black;
+      }
+    }
+  }
+}

@@ -1,0 +1,68 @@
+<div class="content">
+    <form class="dashboard" ng-controller="contentCtrl" name="routeForm">
+        <div class="route-title">
+            <input type="text" value="" placeholder="路书名" class="route-title-position form-input input-text-m form-control" required>
+        </div>
+        <div class="editor-panel">
+            <div class="days-editor">
+                <ul>
+                    <li class="padding20"><a href=""><i class="fa fa-angle-left fa-4x"></i></a></li>
+                    <li>
+                        <p>
+                            <div uib-dropdown is-open="status.isopen">
+                                <span>
+                                    第<span ng-bind="dayNumber"></span>
+                                    <i class="fa fa-angle-down" ng-show="showDrapdownIcon" uib-dropdown-toggle ng-disabled="disabled"></i>
+                                </span>天
+                                <ul class="dropdown-menu" uib-dropdown-menu role="menu">
+                                   <li role="menuitem"><a href="">第一天</a></li>
+                                   <li role="menuitem"><a href="">第二天</a></li>
+                                   <li role="menuitem"><a href="">第三天</a></li>
+                                   <li role="menuitem"><a href="">第四天</a></li>
+                               </ul>
+                            </div>
+                        </p>
+                        <p>
+                            <a href="">
+                                <span ng-model="firstTravelDate">{{firstTravelDate}}</span>
+                                <i class="fa fa-calendar"></i>
+                            </a>
+                        </p>
+                    </li>
+                    <li class="padding20"><a href=""><i class="fa fa-angle-right fa-4x"></i></a></li>
+                </ul>
+                <ul>
+                    <li class="padding20"><a href="" ng-click="addNewDay()"><i class="fa fa-plus fa-2x"></i></a></li>
+                    <li class="padding20"><a href=""><i class="fa fa-trash-o fa-2x"></i></a></li>
+                </ul>
+            </div>
+            <div class="sights-editor">
+                <div class="sight-container" id="sight-container" ng-hover>
+                    <div class="sight-img"><img src="/xplan/images/img.png" alt="" name="locationImage" ng-model="locationImage"></div>
+                    <div class="sight-title">
+                        <a href="" ng-bind="locationName"></a>
+                        <p id="edit-icons" class="hide"><a href=""><i class="fa fa-edit"></i></a>&nbsp<a href=""><i class="fa fa-trash-o"></i></a></p>
+                    </div>
+                </div>
+                <div class="sight-distance">
+                    <i class="fa fa-long-arrow-down fa-2x"></i>
+                    <i class="fa fa-road"></i>
+                    <span>相距：<span ng-bind="spaceBetweenTwoSights"></span></span>
+                    <i class="fa fa-car"></i>
+                    <span>驾车：<span ng-bind="drivingTimeBetweenTwoSights"></span></span>
+                </div>
+                <div class="sight-container">
+                    <div class="sight-img"><img src="" alt=""></div>
+                    <div class="sight-title">
+                        <a href="" ng-bind="locationName"></a>
+                        <p><a href=""><i class="fa fa-edit"></i></a>&nbsp<a href=""><i class="fa fa-trash-o"></i></a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="editor-footer">
+                <a href="" class="button button-block button-red">保存路书</a>
+            </div>
+        </div>
+    </form>
+</div>
+
