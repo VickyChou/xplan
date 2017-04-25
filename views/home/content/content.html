@@ -6,19 +6,16 @@
         <div class="editor-panel">
             <div class="days-editor">
                 <ul>
-                    <li class="padding20" back-to-pre-day><a href=""><i class="fa fa-angle-left fa-4x"></i></a></li>
+                    <li class="padding20"><a href="" ng-click="backToPreDay()"><i class="fa fa-angle-left fa-4x"></i></a></li>
                     <li>
                         <p>
                             <div uib-dropdown is-open="status.isopen">第
                                 <span class="width62">
                                     <span ng-bind="dayNumber" id="day-num"></span>
-                                    <span id="drop-down" class="hide"><i class="fa fa-angle-down" uib-dropdown-toggle ng-disabled="disabled"></i></span>
+                                    <span id="drop-down" ng-show="showDrapdownIcon"><i class="fa fa-angle-down" uib-dropdown-toggle ng-disabled="disabled"></i></span>
                                 </span>天
                                 <ul class="dropdown-menu" uib-dropdown-menu role="menu">
-                                   <li role="menuitem"><a href="">第一天</a></li>
-                                   <li role="menuitem"><a href="">第二天</a></li>
-                                   <li role="menuitem"><a href="">第三天</a></li>
-                                   <li role="menuitem"><a href="">第四天</a></li>
+                                   <li role="menuitem" ng-repeat="x in dayNumArray"><a href="">第{{x}}天</a></li>
                                </ul>
                             </div>
                         </p>
@@ -29,19 +26,19 @@
                             </a>
                         </p>
                     </li>
-                    <li class="padding20"><a href=""><i class="fa fa-angle-right fa-4x"></i></a></li>
+                    <li class="padding20"><a href="" ng-click="toNextDay()"><i class="fa fa-angle-right fa-4x"></i></a></li>
                 </ul>
                 <ul>
-                    <li class="padding20" add-new-day><a href=""><i class="fa fa-plus fa-2x"></i></a></li>
-                    <li class="padding20"><a href=""><i class="fa fa-trash-o fa-2x"></i></a></li>
+                    <li class="padding20"><a href="" ng-click="addNewDay()"><i class="fa fa-plus fa-2x"></i></a></li>
+                    <li class="padding20"><a href="" ng-click="deleteCurrentDay()"><i class="fa fa-trash-o fa-2x"></i></a></li>
                 </ul>
             </div>
             <div class="sights-editor">
-                <div class="sight-container" show-icon>
-                    <div class="sight-img"><img src="" alt="" name="locationImage" ng-model="locationImage"></div>
-                    <div class="sight-title">
-                        <a href="" ng-bind="locationName"></a>
-                        <p id="edit-icons" class="hide"><a href=""><i class="fa fa-edit"></i></a>&nbsp<a href=""><i class="fa fa-trash-o"></i></a></p>
+                <div class="sight-container" ng-show="showsights" show-icon ng-repeat="x in imgUrls">
+                    <div class="sight-img"><a><img src="{{x}}"></a></div>
+                    <div class="sight-title" ng-repeat="x in locationNames">
+                        <a href="">{{x}}</a>
+                        <p id="edit-icons" class="hide"><a href=""><i class="fa fa-edit"></i></a><a href=""><i class="fa fa-trash-o"></i></a></p>
                     </div>
                 </div>
                 <div class="sight-distance" ng-show="false">
@@ -60,3 +57,17 @@
     </form>
 </div>
 
+
+<script type="text/ng-template" id="deleteDayModel.html">
+    <div class="modal-header">
+        <h3 class="modal-title" id="modal-title">删除提示！</h3>
+    </div>
+    <div class="modal-body" id="modal-body">
+        <p>删除当前日程，该日程下的景点数据将全部删除，不能恢复</p>
+        <h4>确认要删除吗？</h4>
+    </div>
+    <div class="modal-footer">
+        <button class="btn button-blue" type="button" ng-click="ok()">确认</button>
+        <button class="btn button-red" type="button" ng-click="cancel()">取消</button>
+    </div>
+</script>
